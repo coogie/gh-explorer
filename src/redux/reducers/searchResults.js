@@ -1,5 +1,5 @@
-import { RECIEVE_SEARCH_RESULTS } from "../actions/searchForm";
-import { normaliseSearchResults } from "../../lib/data-normalise";
+import { RECIEVE_SEARCH_RESULTS } from "redux/actions/searchForm";
+import { normaliseSearchResults } from "lib/data-normalise";
 
 export const searchResults = (state = [], payload) => {
   switch (payload.type) {

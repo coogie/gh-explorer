@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
-import { ui, searchForm, searchResults } from "./reducers";
+import { ui, searchForm, searchResults } from "redux/reducers";
 
 const rootReducer = combineReducers({
   ui,

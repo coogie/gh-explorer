@@ -4,7 +4,7 @@ import {
   ERROR_SEARCH,
   RECIEVE_SEARCH_RESULTS,
   RECIEVE_NO_SEARCH_RESULTS
-} from "../actions/searchForm";
+} from "redux/actions/searchForm";
 
 const defaultState = {
   userInput: "",

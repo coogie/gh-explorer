@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { AlertMessage } from "../presentational/AlertMessage";
+import { AlertMessage } from "components/presentational/AlertMessage";
 
 const mapStateToProps = state => {
   const { isVisible, message } = state.ui.alert;

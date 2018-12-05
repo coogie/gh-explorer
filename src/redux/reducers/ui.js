@@ -2,7 +2,7 @@ import {
   REQUEST_SEARCH,
   ERROR_SEARCH,
   RECIEVE_NO_SEARCH_RESULTS
-} from "../actions/searchForm";
+} from "redux/actions/searchForm";
 
 const defaultState = {
   alert: {

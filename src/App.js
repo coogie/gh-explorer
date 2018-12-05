@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import { ConnectedSearchForm } from "./components/container/ConnectedSearchForm";
-import { ConnectedSearchResults } from "./components/container/ConnectedSearchResults";
-import { ConnectedAlertMessage } from "./components/container/ConnectedAlertMessage";
+import { ConnectedSearchForm } from "components/container/ConnectedSearchForm";
+import { ConnectedSearchResults } from "components/container/ConnectedSearchResults";
+import { ConnectedAlertMessage } from "components/container/ConnectedAlertMessage";
 
 import logo from "./logo.svg";
 import "./App.scss";
