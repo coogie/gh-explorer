@@ -45,12 +45,14 @@ export class SearchResults extends PureComponent {
     return (
       <Fragment>
         <List
+          className="SearchResults__list"
           header={header}
           loading={isLoading}
           itemLayout="vertical"
           dataSource={results}
           renderItem={item => (
             <ListItem
+              className="SearchResults__item"
               actions={[
                 <IconText
                   type="star-o"
@@ -59,6 +61,7 @@ export class SearchResults extends PureComponent {
               ]}
             >
               <ListItemMeta
+                className="SearchResults__meta"
                 avatar={<Avatar src={item.owner.avatar_url} />}
                 title={
                   <a href={item.html_url} rel="noopener">

@@ -27,16 +27,22 @@ export class SearchForm extends Component {
     const { userInput, isLoading, onChange } = this.props;
 
     return (
-      <Form layout="inline" onSubmit={this.submit}>
+      <Form className="SearchForm" layout="inline" onSubmit={this.submit}>
         <FormItem>
           <Input
+            className="SearchForm__input"
             placeholder="Search repositories"
             value={userInput}
             onChange={onChange}
           />
         </FormItem>
         <FormItem>
-          <Button type="primary" loading={isLoading} onClick={this.submit}>
+          <Button
+            className="SearchForm__button"
+            type="primary"
+            loading={isLoading}
+            onClick={this.submit}
+          >
             Search
           </Button>
         </FormItem>
