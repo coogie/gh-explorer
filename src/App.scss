@@ -1,14 +1,31 @@
 .App {
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  margin: auto;
-  max-width: 60vw;
   min-height: 100vh;
 }
 
 .App__header {
   text-align: center;
+}
+
+.App__main {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: auto;
+  max-width: 60vw;
+}
+
+.App__footer {
+  background-color: #1890ff;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(#000, 0.15);
+
+  p {
+    margin: 0;
+  }
 }
 
 .App__logo {

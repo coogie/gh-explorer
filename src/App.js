@@ -15,10 +15,19 @@ class App extends Component {
           <img src={logo} className="App__logo" alt="logo" />
           <ConnectedSearchForm />
         </header>
-        <main>
+        <main className="App__main">
           <ConnectedAlertMessage />
           <ConnectedSearchResults />
         </main>
+        <footer className="App__footer">
+          <p>Simple application for searching repositories via Github API.</p>
+          <p>
+            <a href="https://github.com/coogie/gh-explorer">
+              Source available on Github
+            </a>{" "}
+            under MIT licence
+          </p>
+        </footer>
       </div>
     );
   }
