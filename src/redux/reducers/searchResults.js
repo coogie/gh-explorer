@@ -5,7 +5,7 @@ export const searchResults = (state = [], { type, payload }) => {
   switch (type) {
     case actions.SEARCH_GENERAL_RESPONSE:
       return payload.map(normaliseSearchResults).sort((a, b) => {
-        return b.stargazers_count - a.stargazers_count;
+        return b.score - a.score;
       });
     case actions.SEARCH_SPECIFIC_RESPONSE:
       return [normaliseSearchResults(payload)];
