@@ -1,36 +1,58 @@
-import {
-  CHANGE_SEARCH_INPUT,
-  REQUEST_SEARCH,
-  ERROR_SEARCH,
-  RECIEVE_SEARCH_RESULTS,
-  RECIEVE_NO_SEARCH_RESULTS
-} from "redux/actions/searchForm";
+import actions from "redux/actions/searchForm";
 
 const defaultState = {
   userInput: "",
-  isLoading: false
+  isLoading: false,
+  alert: {
+    isVisible: false,
+    message: null
+  }
 };
 
-export const searchForm = (state = defaultState, payload) => {
-  switch (payload.type) {
-    case CHANGE_SEARCH_INPUT:
-      return {
+export const searchForm = (state = defaultState, { type, payload }) => {
+  let newState;
+
+  switch (type) {
+    case actions.CHANGE_SEARCH_INPUT:
+      newState = {
         ...state,
-        userInput: payload.input
+        userInput: payload
       };
-    case REQUEST_SEARCH:
-      return {
+      break;
+    case actions.SEARCH_GENERAL_REQUEST:
+    case actions.SEARCH_SPECIFIC_REQUEST:
+      newState = {
         ...state,
+        alert: {
+          ...defaultState.alert
+        },
         isLoading: true
       };
-    case RECIEVE_NO_SEARCH_RESULTS:
-    case RECIEVE_SEARCH_RESULTS:
-    case ERROR_SEARCH:
-      return {
+      break;
+    case actions.SEARCH_GENERAL_RESPONSE:
+    case actions.SEARCH_SPECIFIC_RESPONSE:
+      newState = {
         ...state,
         isLoading: false
       };
+      break;
+    case actions.SEARCH_GENERAL_ERROR:
+    case actions.SEARCH_SPECIFIC_ERROR:
+      newState = {
+        ...state,
+        isLoading: false,
+        alert: {
+          ...state.alert,
+          isVisible: true,
+          message: payload
+        }
+      };
+      break;
     default:
-      return state;
+      newState = {
+        ...state
+      };
   }
+
+  return newState;
 };

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { changeSearchInput, submitSearch } from "redux/actions";
+import actions from "redux/actions/searchForm";
 import { SearchForm } from "components/presentational/SearchForm";
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,8 +10,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onChange: event => dispatch(changeSearchInput(event.target.value)),
-    onSubmit: input => dispatch(submitSearch(input))
+    onChange: event => dispatch(actions.changeSearchInput(event.target.value)),
+    onSubmit: input => dispatch(actions.submitSearch(input))
   };
 };
 

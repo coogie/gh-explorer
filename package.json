@@ -5,6 +5,7 @@
   "homepage": "https://coog.ie/gh-explorer",
   "dependencies": {
     "antd": "^3.11.0",
+    "change-case": "^3.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.5",
