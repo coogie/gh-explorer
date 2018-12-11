@@ -8,7 +8,7 @@ const ListItemMeta = ListItem.Meta;
 const IconText = ({ type, text }) => (
   <Fragment>
     <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
+    {text.toLocaleString("en-GB")}
   </Fragment>
 );
 
@@ -36,6 +36,18 @@ export class SearchResults extends PureComponent {
     isLoading: false
   };
 
+  renderActions = item => {
+    const actions = [
+      <IconText type="star-o" text={item.stargazers_count} />,
+      <IconText type="fork" text={item.forks_count} />
+    ];
+    if (item.subscribers_count) {
+      actions.push(<IconText type="eye" text={item.subscribers_count} />);
+    }
+
+    return actions;
+  };
+
   render() {
     const { isLoading, results } = this.props;
 
@@ -53,12 +65,7 @@ export class SearchResults extends PureComponent {
           renderItem={item => (
             <ListItem
               className="SearchResults__item"
-              actions={[
-                <IconText
-                  type="star-o"
-                  text={item.stargazers_count_formatted}
-                />
-              ]}
+              actions={this.renderActions(item)}
             >
               <ListItemMeta
                 className="SearchResults__meta"
