@@ -11,7 +11,7 @@
 .App__main {
   display: flex;
   flex: 1;
-  justify-content: center;
+  flex-direction: column;
   margin: auto;
   max-width: 60vw;
 }

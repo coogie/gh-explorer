@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { ConnectedSearchForm } from "components/container/ConnectedSearchForm";
 import { ConnectedSearchResults } from "components/container/ConnectedSearchResults";
-import { ConnectedAlertMessage } from "components/container/ConnectedAlertMessage";
 
 import logo from "./logo.svg";
 import "./App.scss";
@@ -16,7 +15,6 @@ class App extends Component {
           <ConnectedSearchForm />
         </header>
         <main className="App__main">
-          <ConnectedAlertMessage />
           <ConnectedSearchResults />
         </main>
         <footer className="App__footer">

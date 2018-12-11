@@ -1,13 +1,19 @@
-import React, { Component } from "react";
-import { bool, func, string } from "prop-types";
-import { Button, Form, Input } from "antd";
+import React, { PureComponent } from "react";
+import { bool, func, string, shape } from "prop-types";
+import { Alert, Button, Form, Input } from "antd";
+
+import "./SearchForm.scss";
 
 const FormItem = Form.Item;
 
-export class SearchForm extends Component {
+export class SearchForm extends PureComponent {
   static propTypes = {
     userInput: string,
     isLoading: bool,
+    alert: shape({
+      isVisible: bool,
+      message: string
+    }),
 
     onChange: func.isRequired,
     onSubmit: func.isRequired
@@ -24,29 +30,42 @@ export class SearchForm extends Component {
   };
 
   render() {
-    const { userInput, isLoading, onChange } = this.props;
+    const { userInput, isLoading, onChange, alert } = this.props;
 
     return (
-      <Form className="SearchForm" layout="inline" onSubmit={this.submit}>
-        <FormItem>
-          <Input
-            className="SearchForm__input"
-            placeholder="Search repositories"
-            value={userInput}
-            onChange={onChange}
+      <div className="SearchForm o-container">
+        {alert.isVisible && (
+          <Alert
+            className="SearchForm__alert"
+            message={alert.message}
+            showIcon
           />
-        </FormItem>
-        <FormItem>
-          <Button
-            className="SearchForm__button"
-            type="primary"
-            loading={isLoading}
-            onClick={this.submit}
-          >
-            Search
-          </Button>
-        </FormItem>
-      </Form>
+        )}
+        <Form
+          className="SearchForm__form"
+          layout="inline"
+          onSubmit={this.submit}
+        >
+          <FormItem>
+            <Input
+              className="SearchForm__input"
+              placeholder="Search repositories"
+              value={userInput}
+              onChange={onChange}
+            />
+          </FormItem>
+          <FormItem>
+            <Button
+              className="SearchForm__button"
+              type="primary"
+              loading={isLoading}
+              onClick={this.submit}
+            >
+              Search
+            </Button>
+          </FormItem>
+        </Form>
+      </div>
     );
   }
 }
